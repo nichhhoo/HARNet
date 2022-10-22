@@ -147,3 +147,5 @@ def main():
     print(df_metrics)
     df_metrics.to_csv(save_path_curr + "/metrics.csv")
     print(f"\n-- Experiment finished. Results were saved to {save_path_curr} --\n")
+    ts_pred_train, _, _, _, _, _, _ = harnet.model.get_pred(model, scaler, ts[idx_range_train[0] - model.max_lag:idx_range_train[1], :])
+    ts_pred_test, _, _, _, _, _, _ = harnet.model.get_pred(model, scaler, ts[idx_range_test[0] - model.max_lag:idx_range_test[1], :])
